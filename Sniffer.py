@@ -43,8 +43,23 @@ def Analyse_Ip_Header(data):
     ip_next_Protocol = ip_header[4] & 0x00ff
     ip_Header_Checksum = ip_header[5]
     ip_Source_Address = socket.inet_ntoa(ip_header[6])
-    ip_Destination_Address = socket.inet_ntoa(ip_header[7]
-                                              
+    ip_Destination_Address = socket.inet_ntoa(ip_header[7])
+
+    print("\n#############################IP################################")
+    print("\n\tVersion : {} ".format(ip_boolVersion))
+    print("\tIHL : {} ".format(ip_IHL))
+    print("\tToS : {} ".format(ip_ToS))
+    print("\tTotal Length : {} ".format(ip_Total_Length))
+    print("\tIdentification : {} ".format(ip_Identification))
+    print("\tFlags : {} ".format(ip_Flags))
+    print("\tFragment_Offset : {} ".format(ip_Fragment_Offset))
+    print("\tTTL : {} ".format(ip_TTL))
+    print("\tProtocol : {} ".format(ip_next_Protocol))
+    print("\tHeader Checksum : {} ".format(ip_Header_Checksum))
+    print("\tSource Address : {}, Destination Address : {}".format(ip_Source_Address,ip_Destination_Address))
+    print("\n")
+
+
     if ip_next_Protocol == 6:
         next_protocol = "TCP"
     if ip_next_Protocol == 17:
